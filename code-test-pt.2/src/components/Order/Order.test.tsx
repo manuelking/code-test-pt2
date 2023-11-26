@@ -1,19 +1,27 @@
-import { render, screen } from '@testing-library/react'
-import { Product } from '../../models/Product'
-import { OrderItem } from '../App/App'
-import { Order } from './Order'
+import React from 'react'
 import ReactDOM from 'react-dom'
-import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { Order } from './Order' // Adjust the import path
+import { OrderItem } from '../App/App'
+import userEvent from '@testing-library/user-event'
+import { Product } from '../../models/Product'
 
-const mockHandler = jest.fn()
+const mockOnRemoveProduct = jest.fn()
+const mockOnAddProduct = jest.fn()
+const mockOnDecrement = jest.fn()
 const productA = new Product('CA6', 'Cake', 200)
-const subTotal = 200
+const productB = new Product('G95', 'Asparagus', 83)
+const subTotal = 1200
 
 const orderItems = [
   {
     ...productA,
     quantity: 2,
+  },
+  {
+    ...productB,
+    quantity: 3,
   },
 ] as OrderItem[]
 
@@ -37,13 +45,13 @@ describe('oder item handlers are called', () => {
       <Order
         order={orderItems}
         subTotal={subTotal}
-        onRemoveProduct={() => mockHandler(productA)}
-        onAddProduct={() => mockHandler(productA)}
-        onDecrement={() => mockHandler(productA)}
+        onRemoveProduct={() => mockOnRemoveProduct(productA)}
+        onAddProduct={() => mockOnAddProduct(productA)}
+        onDecrement={() => mockOnDecrement(productA)}
       />
     )
     userEvent.click(screen.getByTestId('decrement-CA6'))
-    expect(mockHandler).toHaveBeenCalledWith(productA)
+    expect(mockOnDecrement).toHaveBeenCalledWith(productA)
   })
 
   test('on add order item', () => {
@@ -51,13 +59,13 @@ describe('oder item handlers are called', () => {
       <Order
         order={orderItems}
         subTotal={subTotal}
-        onRemoveProduct={() => mockHandler(productA)}
-        onAddProduct={() => mockHandler(productA)}
-        onDecrement={() => mockHandler(productA)}
+        onRemoveProduct={() => mockOnRemoveProduct(productA)}
+        onAddProduct={() => mockOnAddProduct(productA)}
+        onDecrement={() => mockOnDecrement(productA)}
       />
     )
     userEvent.click(screen.getByTestId('add-CA6'))
-    expect(mockHandler).toHaveBeenCalledWith(productA)
+    expect(mockOnAddProduct).toHaveBeenCalledWith(productA)
   })
 
   test('on remove order item', () => {
@@ -65,30 +73,73 @@ describe('oder item handlers are called', () => {
       <Order
         order={orderItems}
         subTotal={subTotal}
-        onRemoveProduct={() => mockHandler(productA)}
-        onAddProduct={() => mockHandler(productA)}
-        onDecrement={() => mockHandler(productA)}
+        onRemoveProduct={() => mockOnRemoveProduct(productA)}
+        onAddProduct={() => mockOnAddProduct(productA)}
+        onDecrement={() => mockOnDecrement(productA)}
       />
     )
     userEvent.click(screen.getByTestId('remove-CA6'))
-    expect(mockHandler).toHaveBeenCalledWith(productA)
+    expect(mockOnRemoveProduct).toHaveBeenCalledWith(productA)
   })
 })
 
-// test('discount total renders', () => {
-//   const bogoEligible = true
-//   const discountEligible = false
+test('renders order title', () => {
+  render(
+    <Order
+      order={orderItems}
+      subTotal={subTotal}
+      onRemoveProduct={mockOnRemoveProduct}
+      onAddProduct={mockOnAddProduct}
+      onDecrement={mockOnDecrement}
+    />
+  )
+  expect(screen.getByTestId('order-title')).toBeInTheDocument()
+})
 
-//   render(
-//     <Order
-//       order={orderItems}
-//       subTotal={subTotal}
-//       onRemoveProduct={() => mockHandler(productA)}
-//       onAddProduct={() => mockHandler(productA)}
-//       onDecrement={() => mockHandler(productA)}
-//     />
-//   )
+test('renders subtotal correctly', () => {
+  render(
+    <Order
+      order={orderItems}
+      subTotal={subTotal}
+      onRemoveProduct={mockOnRemoveProduct}
+      onAddProduct={mockOnAddProduct}
+      onDecrement={mockOnDecrement}
+    />
+  )
+  expect(screen.getByTestId('subtotal')).toHaveTextContent('Subtotal - 12.00')
+})
 
-//   const totalAfterDiscountElement = screen.queryByTestId('total-after-discount')
+test('renders total after discounts when eligible', () => {
+  render(
+    <Order
+      order={orderItems}
+      subTotal={subTotal}
+      onRemoveProduct={mockOnRemoveProduct}
+      onAddProduct={mockOnAddProduct}
+      onDecrement={mockOnDecrement}
+    />
+  )
+  expect(screen.getByTestId('discount-total')).toHaveTextContent(
+    'Total after discounts - 8.77'
+  )
+})
 
-// })
+test('renders product names and quantities correctly', () => {
+  render(
+    <Order
+      order={orderItems}
+      subTotal={subTotal}
+      onRemoveProduct={mockOnRemoveProduct}
+      onAddProduct={mockOnAddProduct}
+      onDecrement={mockOnDecrement}
+    />
+  )
+
+  orderItems.forEach((item) => {
+    const productName = screen.getByText(item.name)
+    const productQuantity = screen.getByTestId(`qty-${item.code}`)
+
+    expect(productName).toBeInTheDocument()
+    expect(productQuantity).toHaveTextContent(`Qty:${item.quantity}`)
+  })
+})
