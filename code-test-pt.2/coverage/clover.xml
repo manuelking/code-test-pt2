@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1701090120957" clover="3.2.0">
+  <project timestamp="1701090120958" name="All files">
+    <metrics statements="49" coveredstatements="48" conditionals="21" coveredconditionals="18" methods="27" coveredmethods="27" elements="97" coveredelements="93" complexity="0" loc="49" ncloc="49" packages="7" files="7" classes="7"/>
+    <package name="src">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="C:\Users\emman\Downloads\code-test-pt.2\src\index.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.App">
+      <metrics statements="24" coveredstatements="24" conditionals="10" coveredconditionals="7" methods="14" coveredmethods="14"/>
+      <file name="App.tsx" path="C:\Users\emman\Downloads\code-test-pt.2\src\components\App\App.tsx">
+        <metrics statements="24" coveredstatements="24" conditionals="10" coveredconditionals="7" methods="14" coveredmethods="14"/>
+        <line num="13" count="16" type="stmt"/>
+        <line num="15" count="16" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="38" count="16" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="44" count="16" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="47" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="16" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Order">
+      <metrics statements="15" coveredstatements="15" conditionals="11" coveredconditionals="11" methods="7" coveredmethods="7"/>
+      <file name="Order.tsx" path="C:\Users\emman\Downloads\code-test-pt.2\src\components\Order\Order.tsx">
+        <metrics statements="15" coveredstatements="15" conditionals="11" coveredconditionals="11" methods="7" coveredmethods="7"/>
+        <line num="24" count="25" type="stmt"/>
+        <line num="25" count="25" type="stmt"/>
+        <line num="26" count="25" type="stmt"/>
+        <line num="29" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="25" type="stmt"/>
+        <line num="31" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="25" type="stmt"/>
+        <line num="35" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="25" type="stmt"/>
+        <line num="38" count="25" type="stmt"/>
+        <line num="53" count="25" type="stmt"/>
+        <line num="58" count="3" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Product">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="ProductItem.tsx" path="C:\Users\emman\Downloads\code-test-pt.2\src\components\Product\ProductItem.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="10" count="50" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ProductList">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="ProductList.tsx" path="C:\Users\emman\Downloads\code-test-pt.2\src\components\ProductList\ProductList.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="15" count="48" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.config">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="products.ts" path="C:\Users\emman\Downloads\code-test-pt.2\src\config\products.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.models">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="Product.ts" path="C:\Users\emman\Downloads\code-test-pt.2\src\models\Product.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="18" count="50" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
